@@ -5,7 +5,7 @@
 	"author": "Hien Phan(stembot.vn@gmail.com)",
 	"homepage": "http://www.mblock.cc/posts/create-extensions-for-mblock",
 	"sort":0,
-	"javascriptURL":"js/demo.js",
+	"javascriptURL":"js/makerUno.js",
   	"firmware":"1.0",
   	"extensionPort":0,
 	"blockSpecs": [
