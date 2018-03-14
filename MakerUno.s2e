@@ -1,7 +1,7 @@
 {	
 	"extensionName": "MakerUno (Arduino Mode Only)",
 	"description": "MakerUno extension for mBlock",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"author": "Hien Phan",
 	"homepage": "https://www.cytron.io/p-maker-uno",
 	"sort":0,
@@ -102,7 +102,7 @@
 			}
 		],
 		[
-			"R",
+			"B",
 			"Built-in button pressed",
 			"digitalButton",
 			{
