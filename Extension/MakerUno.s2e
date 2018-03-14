@@ -1,7 +1,7 @@
 {	
 	"extensionName": "Maker Uno (Arduino Mode Only)",
 	"description": "Maker Uno extension",
-	"version": "1.0.7",
+	"version": "1.1.0",
 	"author": "Hien Phan",
 	"homepage": "https://www.cytron.io/p-maker-uno",
 	"sort":0,
@@ -49,15 +49,15 @@
 		],
 		[
 			"w",
-			"buzzer play tone %d.note for duration %d.beats",
+			"buzzer play Note %d.note for duration %d.beats",
 			"buzzer",
 			"_C4",
 			"_Half",
 			{
 				"setup":"pinMode(8,OUTPUT);\n",
 				"inc":"",
-				"def":"void buzzer_play_tone(int tone, int duration) { for (long i = 0; i < duration * 1000L; i += tone * 2) {digitalWrite(8, HIGH);delayMicroseconds(tone);digitalWrite(8, LOW);delayMicroseconds(tone);}}",
-				"work":"buzzer_play_tone({0}, {1});\n",
+				"def":"void buzzer_play_note(int note, int beat) {\ntone(8, note, beat);\nint pauseBetweenNotes = beat * 1.30;\ndelay(pauseBetweenNotes);\nnoTone(8);}\n",
+				"work":"buzzer_play_note({0}, {1});\n",
 				"loop":""
 			}
 		],
