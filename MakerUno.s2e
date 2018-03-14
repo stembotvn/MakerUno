@@ -1,7 +1,7 @@
 {	
 	"extensionName": "MakerUno (Arduino Mode Only)",
 	"description": "MakerUno extension for mBlock",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"author": "Hien Phan",
 	"homepage": "https://www.cytron.io/p-maker-uno",
 	"sort":0,
@@ -109,7 +109,7 @@
 				"setup":"pinMode(2,INPUT_PULLUP); \n",
 				"inc":"",
 				"def":"",
-				"work":"digitalRead(2)",
+				"work":"!digitalRead(2)",
 				"loop":""
 			}
 		],
