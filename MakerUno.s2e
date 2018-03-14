@@ -1,14 +1,26 @@
 {	
 	"extensionName": "MakerUno (Arduino Mode Only)",
 	"description": "MakerUno extension for mBlock",
-	"version": "1.0.1",
-	"author": "STEMbot.vn",
+	"version": "1.0.2",
+	"author": "Hien Phan",
 	"homepage": "https://www.cytron.io/p-maker-uno",
 	"sort":0,
 	"javascriptURL":"js/makerUno.js",
   	"firmware":"1.0",
   	"extensionPort":0,
 	"blockSpecs": [
+	[
+			"h",
+			"MakerUno Program",
+			"runArduino",
+			{
+				"setup": "",
+				"inc": "",
+				"def": "",
+				"work": "",
+				"loop": ""
+			}
+		],
 	    [
 			"w",
 			"LED %d.digital %d.onoff",
@@ -25,16 +37,15 @@
 		],
 		[
 			"w",
-			"buzzer %d.digital play tone %d.tone for duration %n",
+			"buzzer play tone %d.note for duration %d.beats",
 			"buzzer",
-			"D4",
-			"1519",
-			"300",
+			"C4",
+			"_Half",
 			{
-				"setup":"pinMode({0},OUTPUT);\n",
+				"setup":"pinMode(8,OUTPUT);\n",
 				"inc":"",
-				"def":"void grove_buzzer_play_tone(int pin, int tone, int duration) { for (long i = 0; i < duration * 1000L; i += tone * 2) {digitalWrite(pin, HIGH);delayMicroseconds(tone);digitalWrite(pin, LOW);delayMicroseconds(tone);}}",
-				"work":"grove_buzzer_play_tone({0}, {1}, {2});\n",
+				"def":"void grove_buzzer_play_tone(int tone, int duration) { for (long i = 0; i < duration * 1000L; i += tone * 2) {digitalWrite(8, HIGH);delayMicroseconds(tone);digitalWrite(8, LOW);delayMicroseconds(tone);}}",
+				"work":"grove_buzzer_play_tone({0}, {1});\n",
 				"loop":""
 			}
 		],
@@ -92,14 +103,13 @@
 		],
 		[
 			"R",
-			"button %d.digital pressed",
+			"Built-in button pressed",
 			"digitalButton",
-			"D4",
 			{
-				"setup":"pinMode({0},INPUT); \n",
+				"setup":"pinMode(2,INPUT_PULLUP); \n",
 				"inc":"",
 				"def":"",
-				"work":"digitalRead({0})",
+				"work":"digitalRead(2)",
 				"loop":""
 			}
 		],
@@ -136,7 +146,9 @@
 		"tone":["c","d","e","f","g","a","b","C"],
 		"level":["HIGH","LOW"],
 		"onoff":["on","off"],
-		"axis":["x","y","z"]
+		"axis":["x","y","z"],
+		"note":["C4","D4","E4","F4","G4","A4","B4","C5","D5","E5","F5","G5","A5","B5","C6","D6","E6","F6","G6","A6","B6"],
+		"beats":["_Half","_Quarter","_Eighth","_Whole","_Double"]
 	},
 	"values":{
 		"D2":2,"D3":3,"D4":4,"D5":5,"D6":6,"D7":7,"D8":8,
@@ -146,7 +158,11 @@
 		"LOW":0,
 		"on":1,
 		"off":0,
-		"x":0,"y":1,"z":2
+		"x":0,"y":1,"z":2,
+		"C4":262,"D4":294,"E4":330,"F4":349,"G4":392,"A4":440,"B4":494,
+			"C5":523,"D5":587,"E5":659,"F5":698,"G5":784,"A5":880,"B5":988,
+			"C6":1047,"D6":1175,"E6":1319,"F6":1397,"G6":1568,"A6":1760,"B6":1976,
+			"_Half":500,"_Quarter":250,"_Eighth":125,"_Whole":1000,"_Double":2000	
 	},
 	"translators":{
 		"zh_CN":{
