@@ -276,19 +276,6 @@
 			"_Half":500,"_Quarter":250,"_Eighth":125,"_Whole":1000,"_Double":2000	
 	},
 	"translators":{
-		"zh_CN":{
-			"Demo Program":"演示程序",
-			"HIGH":"高电平",
-			"LOW":"低电平",
-			"buzzer %d.digital play tone %d.tone for duration %n":"蜂鸣器 %d.digital 播放音调 %d.tone 时长 %n",
-			"sound sensor %d.analog":"声音传感器 %d.analog",
-			"rotary angle sensor %d.analog":"电位器 %d.analog",
-			"Piezo vibration sensor %d.analog":"Piezo 振动传感器 %d.analog",
-			"button %d.digital pressed":"按钮 %d.digital 被按下",
-			"temperature sensor %d.analog":"温度传感器 %d.analog",
-			"touch sensor %d.digital pressed":"触摸传感器 %d.digital 被按下",
-			"3-axis digital accelerometer %d.axis":"3轴数字加速度传感器 %d.axis 轴",
-            "blink":"闪烁"
-		}
+	
 	}
 }
