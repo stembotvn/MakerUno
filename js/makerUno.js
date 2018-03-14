@@ -1,4 +1,4 @@
-// demo.js
+// MakerUNO.js
 
 (function(ext) {
     var device = null;
@@ -50,7 +50,7 @@
             tryNextDevice();
             return;
         }
-        device.set_receive_handler('demo',function(data) {
+        device.set_receive_handler('makerUno',function(data) {
             processData(data);
         });
     };
@@ -66,10 +66,10 @@
     };
 
     ext._getStatus = function() {
-        if(!device) return {status: 1, msg: 'demo disconnected'};
-        return {status: 2, msg: 'demo connected'};
+        if(!device) return {status: 1, msg: 'makerUno disconnected'};
+        return {status: 2, msg: 'makerUno connected'};
     }
 
     var descriptor = {};
-	ScratchExtensions.register('demo', descriptor, ext, {type: 'serial'});
+	ScratchExtensions.register('makerUno', descriptor, ext, {type: 'serial'});
 })({});
