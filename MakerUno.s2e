@@ -1,0 +1,167 @@
+{	
+	"extensionName": "MakerUno (Arduino Mode Only)",
+	"description": "MakerUno extension for mBlock",
+	"version": "1.0.1",
+	"author": "Hien Phan(stembot.vn@gmail.com)",
+	"homepage": "http://www.mblock.cc/posts/create-extensions-for-mblock",
+	"sort":0,
+	"javascriptURL":"js/demo.js",
+  	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+	    [
+			"w",
+			"LED %d.digital %d.onoff",
+			"groveled",
+			"D4",
+			"on",
+			{
+				"setup":"pinMode({0},OUTPUT);\n",
+				"inc":"",
+				"def":"",
+				"work":"digitalWrite({0}, {1});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"buzzer %d.digital play tone %d.tone for duration %n",
+			"buzzer",
+			"D4",
+			"1519",
+			"300",
+			{
+				"setup":"pinMode({0},OUTPUT);\n",
+				"inc":"",
+				"def":"void grove_buzzer_play_tone(int pin, int tone, int duration) { for (long i = 0; i < duration * 1000L; i += tone * 2) {digitalWrite(pin, HIGH);delayMicroseconds(tone);digitalWrite(pin, LOW);delayMicroseconds(tone);}}",
+				"work":"grove_buzzer_play_tone({0}, {1}, {2});\n",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"temperature sensor %d.analog",
+			"tempSensor",
+			"A0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"float grove_temperature_reading(float a){const int B=4275;float R=1023.0/((float)a)-1.0;R = 100000.0*R;return 1.0/(log(R/100000.0)/B+1/298.15)-273.15;}\n",
+				"work":"grove_temperature_reading(analogRead(A{0}))",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"sound sensor %d.analog",
+			"soundSensor",
+			"A0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"int grove_sound_sensor_reading(int pin){long sum = 0;for(int i=0; i<32; i++){sum += analogRead(pin);}sum >>= 5;return sum;}\n",
+				"work":"grove_sound_sensor_reading(A{0})",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"rotary angle sensor %d.analog",
+			"rotaryAngleSensor",
+			"A0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"analogRead(A{0})",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"Piezo vibration sensor %d.analog",
+			"vibrationSensor",
+			"A0",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"analogRead(A{0})",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"button %d.digital pressed",
+			"digitalButton",
+			"D4",
+			{
+				"setup":"pinMode({0},INPUT); \n",
+				"inc":"",
+				"def":"",
+				"work":"digitalRead({0})",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"touch sensor %d.digital pressed",
+			"touchSensor",
+			"D4",
+			{
+				"setup":"pinMode({0},INPUT); \n",
+				"inc":"",
+				"def":"",
+				"work":"digitalRead({0})",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"3-axis digital accelerometer %d.axis",
+			"accelerometer",
+			"x",
+			{
+				"setup":"accelemeter.init(); \n",
+				"inc":"#include \"MMA7660.h\"\n",
+				"def":"MMA7660 accelemeter;\nfloat grove_accelemeter_0,grove_accelemeter_1,grove_accelemeter_2;\n",
+				"work":"grove_accelemeter_{0}",
+				"loop":"accelemeter.getAcceleration(&grove_accelemeter_0,&grove_accelemeter_1,&grove_accelemeter_2);\n"
+			}
+		]
+	],
+	"menus": {
+		"digital":["D2","D3","D4","D5","D6","D7","D8"],
+		"analog":["A0","A1","A2","A3"],
+		"tone":["c","d","e","f","g","a","b","C"],
+		"level":["HIGH","LOW"],
+		"onoff":["on","off"],
+		"axis":["x","y","z"]
+	},
+	"values":{
+		"D2":2,"D3":3,"D4":4,"D5":5,"D6":6,"D7":7,"D8":8,
+		"A0":0,"A1":1,"A2":2,"A3":3,
+		"c":1915,"d":1700,"e":1519,"f":1432,"g":1275,"a":1136,"b":1014,"c":956,
+		"HIGH":1,
+		"LOW":0,
+		"on":1,
+		"off":0,
+		"x":0,"y":1,"z":2
+	},
+	"translators":{
+		"zh_CN":{
+			"Demo Program":"演示程序",
+			"HIGH":"高电平",
+			"LOW":"低电平",
+			"buzzer %d.digital play tone %d.tone for duration %n":"蜂鸣器 %d.digital 播放音调 %d.tone 时长 %n",
+			"sound sensor %d.analog":"声音传感器 %d.analog",
+			"rotary angle sensor %d.analog":"电位器 %d.analog",
+			"Piezo vibration sensor %d.analog":"Piezo 振动传感器 %d.analog",
+			"button %d.digital pressed":"按钮 %d.digital 被按下",
+			"temperature sensor %d.analog":"温度传感器 %d.analog",
+			"touch sensor %d.digital pressed":"触摸传感器 %d.digital 被按下",
+			"3-axis digital accelerometer %d.axis":"3轴数字加速度传感器 %d.axis 轴",
+            "blink":"闪烁"
+		}
+	}
+}
