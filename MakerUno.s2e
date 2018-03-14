@@ -1,7 +1,7 @@
 {	
 	"extensionName": "Maker Uno (Arduino Mode Only)",
 	"description": "Maker Uno extension",
-	"version": "1.0.5",
+	"version": "1.0.7",
 	"author": "Hien Phan",
 	"homepage": "https://www.cytron.io/p-maker-uno",
 	"sort":0,
@@ -21,11 +21,23 @@
 				"loop": ""
 			}
 		],
-	    [
+		[
+			"w",
+			"Reset all LEDs",
+			"LEDreset",
+			{
+				"setup":"for (int i=0;i<=13;i++) {pinMode(i,OUTPUT);digitalWrite(i, 0);}\n",
+				"inc":"",
+				"def":"",
+				"work":"",
+				"loop":""
+			}
+		],
+		[
 			"w",
 			"LED %d.LEDPin %d.onoff",
 			"groveled",
-			"D4",
+			"L4",
 			"on",
 			{
 				"setup":"pinMode({0},OUTPUT);\n",
@@ -44,11 +56,24 @@
 			{
 				"setup":"pinMode(8,OUTPUT);\n",
 				"inc":"",
-				"def":"void grove_buzzer_play_tone(int tone, int duration) { for (long i = 0; i < duration * 1000L; i += tone * 2) {digitalWrite(8, HIGH);delayMicroseconds(tone);digitalWrite(8, LOW);delayMicroseconds(tone);}}",
-				"work":"grove_buzzer_play_tone({0}, {1});\n",
+				"def":"void buzzer_play_tone(int tone, int duration) { for (long i = 0; i < duration * 1000L; i += tone * 2) {digitalWrite(8, HIGH);delayMicroseconds(tone);digitalWrite(8, LOW);delayMicroseconds(tone);}}",
+				"work":"buzzer_play_tone({0}, {1});\n",
 				"loop":""
 			}
 		],
+		[
+			"B",
+			"Built-in button pressed",
+			"BuiltInButton",
+			{
+				"setup":"pinMode(2,INPUT_PULLUP); \n",
+				"inc":"",
+				"def":"",
+				"work":"!digitalRead(2)",
+				"loop":""
+			}
+		],
+        
 
 		[
 		 "B",
@@ -226,9 +251,9 @@
 		]
 	],
 	"menus": {
-	    "LEDPin":["D2","D3","D4","D5","D6","D7","D8","D11","D12","D13"],
-		"digital":["D2","D3","D4","D5","D6","D7","D8","D11","D12","D13","A0_Digital","A1_Digital","A2_Digital","A3_Digital","A4_Digital","A5_Digital"],
-		"analog":["A0","A1","A2","A3","A4","A5","A6","A7"],
+	    "LEDPin":["L2","L3","L4","L5","L6","L7","L8","L9","L10","L11","L12","L13"],
+		"digital":["D2","D3","D4","D5","D6","D7","D8","D9","D10","D11","D12","D13","A0_Digital","A1_Digital","A2_Digital","A3_Digital","A4_Digital","A5_Digital"],
+		"analog":["A0","A1","A2","A3","A4","A5"],
 		"pwmPin":["D3","D5","D6","D9","D10","D11"],
 		"level":["HIGH","LOW"],
 		"onoff":["on","off"],
@@ -237,6 +262,7 @@
 		"beats":["_Half","_Quarter","_Eighth","_Whole","_Double"]
 	},
 	"values":{
+	    "L2":2,"L3":3,"L4":4,"L5":5,"L6":6,"L7":7,"L8":8,"L9":9,"L10":10,"L11":11,"L12":12,"L13":13,
 		"D2":2,"D3":3,"D4":4,"D5":5,"D6":6,"D7":7,"D8":8,"D9":9,"D10":10,"D11":11,"D12":12,"D13":13,
 		"A0_Digital":14,"A1_asDigital":15,"A2_Digital":16,"A3_Digital":17,"A4_Digital":18,"A5_Digital":19,
 		"A0":0,"A1":1,"A2":2,"A3":3,"A4":4,"A5":5,"A6":6,"A7":7,
