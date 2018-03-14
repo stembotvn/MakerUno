@@ -1,7 +1,7 @@
 {	
-	"extensionName": "MakerUno (Arduino Mode Only)",
-	"description": "MakerUno extension for mBlock",
-	"version": "1.0.4",
+	"extensionName": "Maker Uno (Arduino Mode Only)",
+	"description": "Maker Uno extension",
+	"version": "1.0.5",
 	"author": "Hien Phan",
 	"homepage": "https://www.cytron.io/p-maker-uno",
 	"sort":0,
@@ -23,7 +23,7 @@
 		],
 	    [
 			"w",
-			"LED %d.digital %d.onoff",
+			"LED %d.LEDPin %d.onoff",
 			"groveled",
 			"D4",
 			"on",
@@ -226,6 +226,7 @@
 		]
 	],
 	"menus": {
+	    "LEDPin":["D2","D3","D4","D5","D6","D7","D8","D11","D12","D13"],
 		"digital":["D2","D3","D4","D5","D6","D7","D8","D11","D12","D13","A0_Digital","A1_Digital","A2_Digital","A3_Digital","A4_Digital","A5_Digital"],
 		"analog":["A0","A1","A2","A3","A4","A5","A6","A7"],
 		"pwmPin":["D3","D5","D6","D9","D10","D11"],
