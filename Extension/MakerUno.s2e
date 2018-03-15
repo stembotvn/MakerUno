@@ -1,7 +1,7 @@
 {	
 	"extensionName": "Maker Uno (Arduino Mode Only)",
 	"description": "Maker Uno extension",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"author": "Hien Phan",
 	"homepage": "https://www.cytron.io/p-maker-uno",
 	"sort":0,
@@ -74,7 +74,6 @@
 			}
 		],
         
-
 		[
 		 "B",
 		 "read digital pin %d.digital",
@@ -159,97 +158,8 @@
 		["w", "reset timer","resetTimer", "0",
 		{"setup":"","inc":"","def":"double currentTime = 0;\ndouble lastTime = 0;\n","work":"lastTime = millis()/1000.0;\n","loop":""}],
 
-		[
-			"R",
-			"temperature sensor %d.analog",
-			"tempSensor",
-			"A0",
-			{
-				"setup":"",
-				"inc":"",
-				"def":"float grove_temperature_reading(float a){const int B=4275;float R=1023.0/((float)a)-1.0;R = 100000.0*R;return 1.0/(log(R/100000.0)/B+1/298.15)-273.15;}\n",
-				"work":"grove_temperature_reading(analogRead(A{0}))",
-				"loop":""
-			}
-		],
-		[
-			"R",
-			"sound sensor %d.analog",
-			"soundSensor",
-			"A0",
-			{
-				"setup":"",
-				"inc":"",
-				"def":"int grove_sound_sensor_reading(int pin){long sum = 0;for(int i=0; i<32; i++){sum += analogRead(pin);}sum >>= 5;return sum;}\n",
-				"work":"grove_sound_sensor_reading(A{0})",
-				"loop":""
-			}
-		],
-		[
-			"R",
-			"rotary angle sensor %d.analog",
-			"rotaryAngleSensor",
-			"A0",
-			{
-				"setup":"",
-				"inc":"",
-				"def":"",
-				"work":"analogRead(A{0})",
-				"loop":""
-			}
-		],
-		[
-			"R",
-			"Piezo vibration sensor %d.analog",
-			"vibrationSensor",
-			"A0",
-			{
-				"setup":"",
-				"inc":"",
-				"def":"",
-				"work":"analogRead(A{0})",
-				"loop":""
-			}
-		],
-		[
-			"B",
-			"Built-in button pressed",
-			"digitalButton",
-			{
-				"setup":"pinMode(2,INPUT_PULLUP); \n",
-				"inc":"",
-				"def":"",
-				"work":"!digitalRead(2)",
-				"loop":""
-			}
-		],
-		[
-			"R",
-			"touch sensor %d.digital pressed",
-			"touchSensor",
-			"D4",
-			{
-				"setup":"pinMode({0},INPUT); \n",
-				"inc":"",
-				"def":"",
-				"work":"digitalRead({0})",
-				"loop":""
-			}
-		],
-		[
-			"R",
-			"3-axis digital accelerometer %d.axis",
-			"accelerometer",
-			"x",
-			{
-				"setup":"accelemeter.init(); \n",
-				"inc":"#include \"MMA7660.h\"\n",
-				"def":"MMA7660 accelemeter;\nfloat grove_accelemeter_0,grove_accelemeter_1,grove_accelemeter_2;\n",
-				"work":"grove_accelemeter_{0}",
-				"loop":"accelemeter.getAcceleration(&grove_accelemeter_0,&grove_accelemeter_1,&grove_accelemeter_2);\n"
-			}
-		]
-	],
+		
+				
 	"menus": {
 	    "LEDPin":["L2","L3","L4","L5","L6","L7","L8","L9","L10","L11","L12","L13"],
 		"digital":["D2","D3","D4","D5","D6","D7","D8","D9","D10","D11","D12","D13","A0_Digital","A1_Digital","A2_Digital","A3_Digital","A4_Digital","A5_Digital"],
