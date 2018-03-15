@@ -2,7 +2,7 @@
 	"extensionName": "Maker Uno (Arduino Mode Only)",
 	"description": "Maker Uno extension",
 	"version": "1.1.1",
-	"author": "Hien Phan",
+	"author": "Cytron Vs STEMbot",
 	"homepage": "https://www.cytron.io/p-maker-uno",
 	"sort":0,
 	"javascriptURL":"js/makerUno.js",
