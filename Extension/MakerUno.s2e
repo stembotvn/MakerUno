@@ -156,10 +156,8 @@
 		{"setup":"","inc":"","def":"double currentTime = 0;\ndouble lastTime = 0;\n--separator--double getLastTime(){\n\treturn currentTime = millis()/1000.0 - lastTime;\n}\n","work":"getLastTime()","loop":""}],
 		
 		["w", "reset timer","resetTimer", "0",
-		{"setup":"","inc":"","def":"double currentTime = 0;\ndouble lastTime = 0;\n","work":"lastTime = millis()/1000.0;\n","loop":""}],
-
-		
-				
+		{"setup":"","inc":"","def":"double currentTime = 0;\ndouble lastTime = 0;\n","work":"lastTime = millis()/1000.0;\n","loop":""}]
+    ],
 	"menus": {
 	    "LEDPin":["L2","L3","L4","L5","L6","L7","L8","L9","L10","L11","L12","L13"],
 		"digital":["D2","D3","D4","D5","D6","D7","D8","D9","D10","D11","D12","D13","A0_Digital","A1_Digital","A2_Digital","A3_Digital","A4_Digital","A5_Digital"],
